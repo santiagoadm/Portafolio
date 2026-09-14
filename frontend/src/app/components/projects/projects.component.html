@@ -1,0 +1,24 @@
+<section id="proyectos">
+  <div class="container">
+    <div class="section-title">
+      <span>06.</span>
+      <h2>Proyectos</h2>
+    </div>
+    <div class="grid list">
+      @for (project of projects; track project.name) {
+        <article class="card">
+          <h3>{{ project.name }}</h3>
+          <p class="muted">{{ project.description }}</p>
+          <div class="tags">
+            @for (tech of project.stack; track tech) {
+              <span class="tag">{{ tech }}</span>
+            }
+          </div>
+          @if (project.url) {
+            <a [href]="project.url" target="_blank" rel="noopener">Ver proyecto</a>
+          }
+        </article>
+      }
+    </div>
+  </div>
+</section>

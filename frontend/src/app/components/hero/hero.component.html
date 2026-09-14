@@ -1,0 +1,23 @@
+<section id="inicio" class="hero">
+  <div class="container">
+    <p class="kicker">Hola, soy</p>
+    <h1>{{ profile.name }}</h1>
+    <p class="headline">{{ profile.headline }}</p>
+    <p class="muted location">{{ profile.location }}</p>
+    <div class="actions">
+      <a class="btn primary" href="#contacto">Contactar</a>
+      <a class="btn" [href]="profile.github" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" [href]="profile.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<section id="sobre-mi">
+  <div class="container">
+    <div class="section-title">
+      <span>01.</span>
+      <h2>Sobre mí</h2>
+    </div>
+    <p class="about">{{ profile.about }}</p>
+  </div>
+</section>

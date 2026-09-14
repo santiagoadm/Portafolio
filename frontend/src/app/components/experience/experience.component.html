@@ -1,0 +1,29 @@
+<section id="experiencia">
+  <div class="container">
+    <div class="section-title">
+      <span>04.</span>
+      <h2>Experiencia</h2>
+    </div>
+    <div class="timeline">
+      @for (job of experience; track job.role + job.company) {
+        <article class="card item">
+          <header>
+            <h3>{{ job.role }} · <span class="company">{{ job.company }}</span></h3>
+            <p class="muted meta">{{ job.period }}@if (job.location) { <span> · {{ job.location }}</span> }</p>
+          </header>
+          <p class="muted">{{ job.summary }}</p>
+          <ul>
+            @for (highlight of job.highlights; track highlight) {
+              <li>{{ highlight }}</li>
+            }
+          </ul>
+          <div class="tags">
+            @for (tech of job.stack; track tech) {
+              <span class="tag">{{ tech }}</span>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

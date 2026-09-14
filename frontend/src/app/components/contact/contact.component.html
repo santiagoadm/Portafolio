@@ -10,7 +10,6 @@
         <p><a [href]="'mailto:' + profile.email">{{ profile.email }}</a></p>
         <p><a [href]="'tel:' + profile.phone.replace(' ', '')">{{ profile.phone }}</a></p>
         <p><a [href]="profile.linkedin" target="_blank" rel="noopener">LinkedIn</a></p>
-        <p><a [href]="profile.github" target="_blank" rel="noopener">GitHub</a></p>
       </div>
 
       <form class="card" [formGroup]="form" (ngSubmit)="submit()">

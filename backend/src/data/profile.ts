@@ -55,7 +55,7 @@ export interface Profile {
 
 export const profile: Profile = {
   name: 'Santiago Andrés Díaz Medina',
-  headline: 'Ingeniero de Software | Seguridad de la Información · Power Platform · Angular',
+  headline: 'Ingeniero de Software | Seguridad de la Información · Desarrollador High & Low code',
   location: 'Bogotá, Colombia',
   email: 'santiagoandresdm@gmail.com',
   phone: '+57 313 3597716',

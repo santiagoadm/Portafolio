@@ -17,11 +17,11 @@
   display: block;
   height: auto;
   margin-left: auto;
-  max-width: 360px;
+  max-width: 340px;
   width: 100%;
-  -webkit-mask-image: radial-gradient(ellipse at 50% 42%, #000 45%, transparent 72%);
-  mask-image: radial-gradient(ellipse at 50% 42%, #000 45%, transparent 72%);
-  opacity: 0.85;
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 97%);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 97%);
+  opacity: 0.92;
 }
 
 @media (max-width: 860px) {
@@ -35,7 +35,7 @@
 
   .portrait img {
     margin: 0 auto;
-    max-width: 260px;
+    max-width: 240px;
   }
 }
 

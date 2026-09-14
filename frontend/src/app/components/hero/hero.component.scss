@@ -2,6 +2,43 @@
   padding: 104px 0 64px;
 }
 
+.hero-layout {
+  align-items: center;
+  display: grid;
+  gap: 32px;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+}
+
+.portrait {
+  margin: 0;
+}
+
+.portrait img {
+  display: block;
+  height: auto;
+  margin-left: auto;
+  max-width: 360px;
+  width: 100%;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 42%, #000 45%, transparent 72%);
+  mask-image: radial-gradient(ellipse at 50% 42%, #000 45%, transparent 72%);
+  opacity: 0.85;
+}
+
+@media (max-width: 860px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .portrait {
+    order: -1;
+  }
+
+  .portrait img {
+    margin: 0 auto;
+    max-width: 260px;
+  }
+}
+
 .kicker {
   color: var(--accent-2);
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;

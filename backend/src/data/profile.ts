@@ -238,8 +238,7 @@ export const profile: Profile = {
       description:
         'Aplicación Angular con API REST en Node.js/Express y TypeScript, desplegable como sitio estático ' +
         'con datos de respaldo.',
-      stack: ['Angular', 'TypeScript', 'Node.js', 'Express'],
-      url: 'https://github.com/santiagoadm/Portafolio'
+      stack: ['Angular', 'TypeScript', 'Node.js', 'Express']
     }
   ]
 };

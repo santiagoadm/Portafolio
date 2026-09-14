@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Escudo con símbolos de código">
+  <defs>
+    <linearGradient id="shield" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4f8cff"/>
+      <stop offset="1" stop-color="#16d6a4"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0b1220"/>
+  <path d="M32 8 52 15v16c0 12-8.4 20.4-20 25C20.4 51.4 12 43 12 31V15z" fill="url(#shield)"/>
+  <path d="M32 12.6 47.6 18v13c0 9.7-6.5 16.7-15.6 20.7C22.9 47.7 16.4 40.7 16.4 31V18z" fill="#0b1220"/>
+  <g fill="none" stroke="url(#shield)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M26 25 20 32l6 7"/>
+    <path d="M38 25l6 7-6 7"/>
+    <path d="M34.6 22.5 29.4 41.5"/>
+  </g>
+</svg>

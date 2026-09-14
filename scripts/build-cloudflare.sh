@@ -8,10 +8,15 @@ cd "$(dirname "$0")/.."
 npm --prefix frontend ci
 npm --prefix frontend run build
 
-cat > frontend/dist/frontend/browser/config.js <<EOF
-window.PORTFOLIO_CONFIG = {
-  apiUrl: '${PORTFOLIO_API_URL:-}',
-  supabaseUrl: '${SUPABASE_URL:-}',
-  supabaseAnonKey: '${SUPABASE_ANON_KEY:-}'
+node -e '
+const fs = require("fs");
+const config = {
+  apiUrl: process.env.PORTFOLIO_API_URL ?? "",
+  supabaseUrl: process.env.SUPABASE_URL ?? "",
+  supabaseAnonKey: process.env.SUPABASE_ANON_KEY ?? ""
 };
-EOF
+fs.writeFileSync(
+  "frontend/dist/frontend/browser/config.js",
+  `window.PORTFOLIO_CONFIG = ${JSON.stringify(config, null, 2)};\n`
+);
+'

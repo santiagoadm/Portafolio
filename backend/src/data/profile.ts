@@ -58,7 +58,7 @@ export const profile: Profile = {
   headline: 'Ingeniero de Software | Seguridad de la Información · Desarrollador High & Low code',
   location: 'Bogotá, Colombia',
   email: 'santiagoandresdm@gmail.com',
-  phone: '+57 313 3597716',
+  phone: '+57 324 3715588',
   github: 'https://github.com/santiagoadm',
   linkedin: 'https://www.linkedin.com/in/santiagoadm/',
   about:

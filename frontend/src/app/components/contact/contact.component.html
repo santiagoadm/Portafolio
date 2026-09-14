@@ -8,7 +8,7 @@
       <div class="card info">
         <p class="muted">¿Tienes un proceso que automatizar o una aplicación que construir? Escríbeme.</p>
         <p><a [href]="'mailto:' + profile.email">{{ profile.email }}</a></p>
-        <p><a [href]="'tel:' + profile.phone.replace(' ', '')">{{ profile.phone }}</a></p>
+        <p><a [href]="'tel:' + profile.phone.split(' ').join('')">{{ profile.phone }}</a></p>
         <p><a [href]="profile.linkedin" target="_blank" rel="noopener">LinkedIn</a></p>
       </div>
 

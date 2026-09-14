@@ -1,7 +1,7 @@
 export interface Skill {
   name: string;
   level: number;
-  category: 'Low Code' | 'High Code' | 'Data' | 'Cloud & DevOps';
+  category: 'Seguridad de la Información' | 'Low Code' | 'High Code' | 'Datos y Nube';
 }
 
 export interface Experience {
@@ -23,6 +23,12 @@ export interface Certification {
   badge?: string;
 }
 
+export interface Education {
+  program: string;
+  institution: string;
+  period: string;
+}
+
 export interface Project {
   name: string;
   description: string;
@@ -35,148 +41,205 @@ export interface Profile {
   headline: string;
   location: string;
   email: string;
+  phone: string;
   github: string;
   linkedin: string;
   about: string;
   services: { title: string; description: string; icon: string }[];
   skills: Skill[];
   experience: Experience[];
+  education: Education[];
   certifications: Certification[];
   projects: Project[];
 }
 
 export const profile: Profile = {
-  name: 'Santiago Andrés D.',
-  headline: 'Desarrollador Low Code & High Code | Power Platform · Angular · Python',
-  location: 'Colombia',
+  name: 'Santiago Andrés Díaz Medina',
+  headline: 'Ingeniero de Software | Seguridad de la Información · Power Platform · Angular',
+  location: 'Bogotá, Colombia',
   email: 'santiagoandresdm@gmail.com',
+  phone: '+57 313 3597716',
   github: 'https://github.com/santiagoadm',
-  linkedin: 'https://www.linkedin.com/in/santiagoadm',
+  linkedin: 'https://www.linkedin.com/in/santiagoadm/',
   about:
-    'Desarrollador de soluciones empresariales especializado en Microsoft Power Platform y ' +
-    'desarrollo a medida. Combino el enfoque low code (Power Apps, Power Automate, Power BI, ' +
-    'Dataverse) con desarrollo high code (Angular, JavaScript/TypeScript, Kotlin, Python y MongoDB) ' +
-    'para entregar automatizaciones, portales y aplicaciones que reducen trabajo manual y ponen los ' +
-    'datos donde se toman las decisiones.',
+    'Ingeniero de Software con experiencia en implementación de sistemas de gestión de seguridad de la ' +
+    'información (ISO 27001:2022 y NIST), auditorías internas y respuesta a auditorías externas, junto con ' +
+    'desarrollo de software low code y high code. Combino Power Platform y automatización (n8n) con ' +
+    'desarrollo a medida en Angular, JavaScript, Kotlin, Python y MongoDB para resolver necesidades de ' +
+    'negocio con análisis, mejora continua y orientación al resultado.',
   services: [
     {
-      title: 'Power Platform',
+      title: 'Seguridad de la información',
       description:
-        'Power Apps (canvas y model-driven), Power Automate, Power BI y Dataverse: automatización de procesos, ' +
-        'flujos de aprobación e integración con Microsoft 365 y APIs externas.',
+        'Implementación y mejora continua de SGSI bajo ISO 27001:2022 y NIST: documentación normativa, ' +
+        'auditorías internas, atención a auditorías externas, gestión de incidentes y de vulnerabilidades.',
+      icon: 'shield'
+    },
+    {
+      title: 'Power Platform y automatización',
+      description:
+        'Power Apps, Power Automate y Power BI, además de workflows en n8n (incluido self-hosted) para ' +
+        'automatizar procesos internos y eliminar tareas manuales.',
       icon: 'bolt'
     },
     {
-      title: 'Desarrollo Low Code',
+      title: 'Desarrollo low code y high code',
       description:
-        'Prototipado y entrega rápida de aplicaciones de negocio con conectores, SharePoint y ' +
-        'gobierno de soluciones (ALM, entornos, soluciones gestionadas).',
-      icon: 'blocks'
-    },
-    {
-      title: 'Desarrollo High Code',
-      description:
-        'Aplicaciones web con Angular y JavaScript/TypeScript, APIs y automatizaciones en Python, ' +
-        'apps Android en Kotlin y persistencia con MongoDB.',
+        'Aplicaciones de negocio rápidas con herramientas low code y desarrollo a medida con Angular, ' +
+        'JavaScript/TypeScript, Python, Kotlin y MongoDB.',
       icon: 'code'
     },
     {
-      title: 'Integración de datos',
+      title: 'Gobierno, riesgos y cumplimiento',
       description:
-        'Diseño de APIs REST, modelado de datos en MongoDB/Dataverse y dashboards para explotar la ' +
-        'información del negocio.',
-      icon: 'database'
+        'Gestión de riesgos (ISO 31000), auditoría interna ISO 9001:2015, evaluaciones de seguridad de ' +
+        'clientes y proveedores, y programas de concientización para colaboradores.',
+      icon: 'checklist'
     }
   ],
   skills: [
-    { name: 'Power Apps', level: 90, category: 'Low Code' },
-    { name: 'Power Automate', level: 90, category: 'Low Code' },
-    { name: 'Power BI', level: 80, category: 'Low Code' },
-    { name: 'Dataverse / SharePoint', level: 80, category: 'Low Code' },
-    { name: 'Angular', level: 85, category: 'High Code' },
-    { name: 'JavaScript / TypeScript', level: 85, category: 'High Code' },
-    { name: 'Python', level: 80, category: 'High Code' },
+    { name: 'ISO 27001:2022 / SGSI', level: 90, category: 'Seguridad de la Información' },
+    { name: 'NIST CSF', level: 80, category: 'Seguridad de la Información' },
+    { name: 'Auditoría interna (ISO 27001 / 9001)', level: 85, category: 'Seguridad de la Información' },
+    { name: 'Gestión de incidentes y vulnerabilidades', level: 80, category: 'Seguridad de la Información' },
+    { name: 'Power Apps / Power Automate', level: 85, category: 'Low Code' },
+    { name: 'Power BI', level: 75, category: 'Low Code' },
+    { name: 'n8n (workflows, self-hosted)', level: 80, category: 'Low Code' },
+    { name: 'Angular', level: 80, category: 'High Code' },
+    { name: 'JavaScript / TypeScript', level: 80, category: 'High Code' },
+    { name: 'Python', level: 75, category: 'High Code' },
     { name: 'Kotlin (Android)', level: 70, category: 'High Code' },
-    { name: 'MongoDB', level: 80, category: 'Data' },
-    { name: 'REST APIs / Node.js', level: 80, category: 'High Code' },
-    { name: 'Git & GitHub', level: 85, category: 'Cloud & DevOps' },
-    { name: 'Azure / Microsoft 365', level: 70, category: 'Cloud & DevOps' }
+    { name: 'MongoDB', level: 75, category: 'Datos y Nube' },
+    { name: 'AWS Cloud Foundations', level: 70, category: 'Datos y Nube' },
+    { name: 'Microsoft 365 / Google Workspace', level: 85, category: 'Datos y Nube' }
   ],
   experience: [
     {
-      role: 'Desarrollador Power Platform',
-      company: 'Empresa actual',
-      period: '2023 — Actualidad',
-      location: 'Remoto',
+      role: 'Analista / Consultor de Seguridad de la Información',
+      company: 'Grant Thornton Colombia',
+      period: 'Julio 2026 — Actualidad',
       summary:
-        'Diseño e implementación de soluciones low code para automatizar procesos internos y ' +
-        'sustituir hojas de cálculo por aplicaciones gobernadas.',
+        'Responsable del mantenimiento y la mejora continua del SGSI basado en ISO 27001:2022 y NIST.',
       highlights: [
-        'Aplicaciones canvas y model-driven integradas con Dataverse y SharePoint.',
-        'Flujos de Power Automate para aprobaciones, notificaciones y sincronización con APIs.',
-        'Dashboards en Power BI para seguimiento operativo en tiempo real.'
+        'Elaboración de documentación normativa y ejecución de auditorías internas; atención a auditorías externas.',
+        'Gestión de la respuesta a incidentes de seguridad y monitoreo de vulnerabilidades.',
+        'Programas de concientización para colaboradores y evaluaciones de seguridad de clientes y proveedores.',
+        'Coordinación de requerimientos tecnológicos de seguridad de la información, TI y transformación digital.'
       ],
-      stack: ['Power Apps', 'Power Automate', 'Power BI', 'Dataverse', 'SharePoint']
+      stack: ['ISO 27001:2022', 'NIST', 'Gestión de incidentes', 'Auditoría', 'Transformación digital']
     },
     {
-      role: 'Desarrollador Full Stack',
-      company: 'Proyectos a medida',
-      period: '2021 — 2023',
-      location: 'Híbrido',
+      role: 'Asistente de Seguridad de la Información',
+      company: 'Grant Thornton Colombia',
+      period: 'Enero 2025 — Junio 2026',
       summary:
-        'Desarrollo de aplicaciones web y móviles, APIs y automatizaciones para clientes de distintos sectores.',
+        'Implementación del SGSI bajo ISO 27001:2022 y NIST, con documentación y auditorías sobre ambas normas.',
       highlights: [
-        'SPAs en Angular consumiendo APIs REST propias.',
-        'Servicios en Node.js y Python con persistencia en MongoDB.',
-        'Aplicaciones Android nativas en Kotlin.'
+        'Respuesta a auditorías internas y externas, y realización de auditorías internas.',
+        'Gestión y monitoreo de vulnerabilidades y gestión de incidentes de seguridad.',
+        'Capacitación y concientización de los colaboradores de la empresa.'
       ],
-      stack: ['Angular', 'TypeScript', 'Node.js', 'Python', 'Kotlin', 'MongoDB']
+      stack: ['ISO 27001:2022', 'NIST', 'Vulnerabilidades', 'Capacitación']
+    },
+    {
+      role: 'Auxiliar de Seguridad de la Información',
+      company: 'Grant Thornton Colombia',
+      period: 'Mayo 2023 — Diciembre 2024',
+      summary:
+        'Apoyo a la implementación del SGSI ISO 27001:2022 y NIST y a la documentación de ambas normas.',
+      highlights: [
+        'Respuesta a auditorías externas y realización de auditorías internas.',
+        'Gestión de incidentes de seguridad y respuesta a evaluaciones de clientes y proveedores.',
+        'Capacitación y concientización de colaboradores.'
+      ],
+      stack: ['ISO 27001:2022', 'NIST', 'Documentación', 'Auditoría interna']
+    },
+    {
+      role: 'Aprendiz de Seguridad de la Información y Ciberseguridad',
+      company: 'Bolsa de Valores de Colombia',
+      period: 'Octubre 2022 — Abril 2023',
+      summary: 'Apoyo al área de seguridad de la información y ciberseguridad de la organización.',
+      highlights: [
+        'Seguimiento de capacitaciones dentro de la organización.',
+        'Control y actualización del inventario de activos de información.',
+        'Acompañamiento y validación de planes de acción y hallazgos de auditoría.',
+        'Validación del inventario de software open source y licenciado.'
+      ],
+      stack: ['Activos de información', 'Auditoría', 'Ciberseguridad']
     }
   ],
+  education: [
+    {
+      program: 'Especialización en Ciberseguridad y Ciberdefensa (cursando)',
+      institution: 'Universidad Santo Tomás',
+      period: 'Actualidad'
+    },
+    {
+      program: 'Ingeniería de Software',
+      institution: 'Fundación Universitaria Compensar',
+      period: '2021 — 2026'
+    },
+    {
+      program: 'Tecnólogo en Desarrollo de Aplicaciones Web y Móviles',
+      institution: 'Fundación Universitaria Compensar',
+      period: '2021 — 2024'
+    },
+    {
+      program: 'Técnico Profesional en Programación de Aplicaciones de Software',
+      institution: 'Fundación Universitaria Compensar',
+      period: '2021 — 2024'
+    },
+    { program: 'Inglés B2', institution: 'London Language Institute', period: '2020' }
+  ],
   certifications: [
+    { name: 'Ethical Hacking Professional Certification', issuer: 'CertiProf', issued: 'Jul 2026' },
+    { name: 'Artificial Intelligence and Cybersecurity Essentials', issuer: 'HPE', issued: 'Jun 2026' },
     {
-      name: 'Microsoft Certified: Power Platform Fundamentals (PL-900)',
-      issuer: 'Microsoft',
-      issued: '2023',
-      url: 'https://learn.microsoft.com/credentials/certifications/power-plat-fundamentals/'
+      name: 'Automatizaciones con n8n: self-hosted para empresas y workflows profesionales',
+      issuer: 'Platzi',
+      issued: 'Ene 2026'
+    },
+    { name: 'Gestión de Riesgos — ISO 31000:2018', issuer: 'Udemy', issued: 'Nov 2025' },
+    { name: 'Analista SOC N1', issuer: 'Comunidad Dojo', issued: 'Sept 2025' },
+    { name: 'Lead Auditor ISO 27001', issuer: 'CertiProf', issued: 'Ago 2025' },
+    {
+      name: 'AWS Academy Graduate — AWS Academy Cloud Foundations',
+      issuer: 'Amazon Web Services',
+      issued: 'May 2024'
     },
     {
-      name: 'Microsoft Certified: Power Platform App Maker Associate (PL-100)',
-      issuer: 'Microsoft',
-      issued: '2023',
-      url: 'https://learn.microsoft.com/credentials/certifications/power-platform-app-maker/'
+      name: 'ISO 27001 Lead Implementer',
+      issuer: 'CertiProf',
+      issued: 'Sept 2024',
+      credentialId: 'I27001CLI'
     },
-    {
-      name: 'Microsoft Certified: Azure Fundamentals (AZ-900)',
-      issuer: 'Microsoft',
-      issued: '2022',
-      url: 'https://learn.microsoft.com/credentials/certifications/azure-fundamentals/'
-    },
-    {
-      name: 'MongoDB Associate Developer',
-      issuer: 'MongoDB University',
-      issued: '2022',
-      url: 'https://learn.mongodb.com/'
-    }
+    { name: 'Auditor Interno ISO 9001:2015', issuer: 'Instituto Tecnisistemas', issued: 'Sept 2024' },
+    { name: 'Arquitectura en la Nube', issuer: 'Cymetria y MinTIC', issued: 'Sept 2024' },
+    { name: 'Lead Cybersecurity Professional', issuer: 'Wolf Hack Academy', issued: 'Mar 2024' },
+    { name: 'Implementación ISO 27001', issuer: 'Udemy', issued: 'Mar 2023' }
   ],
   projects: [
     {
-      name: 'Portal de automatización de solicitudes',
+      name: 'Implementación de SGSI ISO 27001:2022',
       description:
-        'Portal interno donde los empleados registran solicitudes y los flujos de Power Automate ' +
-        'resuelven aprobaciones, notificaciones y trazabilidad.',
-      stack: ['Power Apps', 'Power Automate', 'Dataverse']
+        'Documentación normativa, análisis de riesgos, auditorías internas y atención a auditorías externas ' +
+        'para sostener la certificación del sistema de gestión.',
+      stack: ['ISO 27001:2022', 'NIST', 'Gestión de riesgos']
     },
     {
-      name: 'API de gestión documental',
+      name: 'Automatización de procesos con Power Platform y n8n',
       description:
-        'API REST en Node.js/Express con MongoDB para clasificar y consultar documentos, consumida desde Angular.',
-      stack: ['Node.js', 'Express', 'MongoDB', 'Angular']
+        'Flujos de aprobación, notificaciones e integraciones entre Microsoft 365 y APIs externas para ' +
+        'eliminar tareas manuales y dejar trazabilidad.',
+      stack: ['Power Apps', 'Power Automate', 'n8n', 'Microsoft 365']
     },
     {
-      name: 'App Android de inventario',
-      description: 'Aplicación nativa en Kotlin con sincronización offline y lectura de códigos de barras.',
-      stack: ['Kotlin', 'Android', 'REST']
+      name: 'Portfolio personal (este sitio)',
+      description:
+        'Aplicación Angular con API REST en Node.js/Express y TypeScript, desplegable como sitio estático ' +
+        'con datos de respaldo.',
+      stack: ['Angular', 'TypeScript', 'Node.js', 'Express'],
+      url: 'https://github.com/santiagoadm/Portafolio'
     }
   ]
 };

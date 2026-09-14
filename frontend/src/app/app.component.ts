@@ -2,6 +2,7 @@ import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { CertificationsComponent } from './components/certifications/certifications.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { EducationComponent } from './components/education/education.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -21,6 +22,7 @@ import { ProfileService } from './services/profile.service';
     ServicesComponent,
     SkillsComponent,
     ExperienceComponent,
+    EducationComponent,
     CertificationsComponent,
     ProjectsComponent,
     ContactComponent,

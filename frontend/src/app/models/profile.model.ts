@@ -23,6 +23,12 @@ export interface Certification {
   badge?: string;
 }
 
+export interface Education {
+  program: string;
+  institution: string;
+  period: string;
+}
+
 export interface Project {
   name: string;
   description: string;
@@ -41,12 +47,14 @@ export interface Profile {
   headline: string;
   location: string;
   email: string;
+  phone: string;
   github: string;
   linkedin: string;
   about: string;
   services: Service[];
   skills: Skill[];
   experience: Experience[];
+  education: Education[];
   certifications: Certification[];
   projects: Project[];
 }

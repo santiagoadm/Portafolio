@@ -14,6 +14,7 @@ export class HeaderComponent {
     { href: '#servicios', label: 'Qué hago' },
     { href: '#skills', label: 'Conocimientos' },
     { href: '#experiencia', label: 'Experiencia' },
+    { href: '#formacion', label: 'Formación' },
     { href: '#certificaciones', label: 'Certificaciones' },
     { href: '#proyectos', label: 'Proyectos' },
     { href: '#contacto', label: 'Contacto' }

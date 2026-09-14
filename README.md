@@ -1,7 +1,8 @@
-# Portfolio personal — Santiago Andrés D.
+# Portfolio personal — Santiago Andrés Díaz Medina
 
-Sitio personal con experiencia, servicios, conocimientos (Power Platform, low code y high code) y
-certificaciones visibles. Monorepo con frontend en Angular y backend en Node.js/Express.
+Sitio personal con experiencia, formación, servicios, conocimientos (seguridad de la información,
+Power Platform, low code y high code) y certificaciones visibles. Monorepo con frontend en Angular y
+backend en Node.js/Express.
 
 ```
 portfolio/
@@ -61,16 +62,22 @@ cd frontend && CHROME_BIN=$(which google-chrome) npx ng test --watch=false --bro
 | GET | `/api/profile` | Perfil completo (datos de todas las secciones) |
 | GET | `/api/skills?category=Low%20Code` | Conocimientos, opcionalmente filtrados |
 | GET | `/api/experience` | Experiencia laboral |
+| GET | `/api/education` | Formación académica |
 | GET | `/api/certifications` | Certificaciones |
 | GET | `/api/projects` | Proyectos |
-| POST | `/api/contact` | Recibe `{ name, email, message }` del formulario |
+| POST | `/api/contact` | Recibe `{ name, email, message }` del formulario y lo guarda en un archivo JSONL |
 
 Variables de entorno del backend (`backend/.env`, ver `.env.example`):
 
 ```
 PORT=3000
-CORS_ORIGIN=http://localhost:4200
+CORS_ORIGIN=http://localhost:4200          # orígenes permitidos, separados por coma
+CONTACT_STORE=data/contact-messages.jsonl  # dónde se guardan los mensajes de contacto
 ```
+
+Si el frontend se publica en un dominio distinto al de la API (por ejemplo GitHub Pages + Render),
+hay que indicar la URL pública del backend en `window.PORTFOLIO_API_URL` (`frontend/src/index.html`)
+y añadir ese dominio a `CORS_ORIGIN`.
 
 ## Cómo actualizar tu contenido
 

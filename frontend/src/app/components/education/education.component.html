@@ -1,0 +1,16 @@
+<section id="formacion">
+  <div class="container">
+    <div class="section-title">
+      <span>05.</span>
+      <h2>Formación</h2>
+    </div>
+    <div class="grid list">
+      @for (item of education; track item.program) {
+        <article class="card">
+          <h3>{{ item.program }}</h3>
+          <p class="muted">{{ item.institution }} · {{ item.period }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

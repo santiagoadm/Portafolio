@@ -1,0 +1,31 @@
+<section id="certificaciones" class="certs">
+  <div class="container">
+    <div class="section-title">
+      <span>06.</span>
+      <h2>Certificaciones</h2>
+    </div>
+    <div class="grid list">
+      @for (cert of certifications; track cert.name) {
+        <article class="card cert">
+          <div class="badge" aria-hidden="true">
+            @if (cert.badge) {
+              <img [src]="cert.badge" [alt]="cert.name">
+            } @else {
+              <span>{{ cert.issuer.charAt(0) }}</span>
+            }
+          </div>
+          <div class="body">
+            <h3>{{ cert.name }}</h3>
+            <p class="muted">{{ cert.issuer }} · {{ cert.issued }}</p>
+            @if (cert.credentialId) {
+              <p class="muted id">ID: {{ cert.credentialId }}</p>
+            }
+            @if (cert.url) {
+              <a [href]="cert.url" target="_blank" rel="noopener">Ver credencial</a>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

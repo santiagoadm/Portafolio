@@ -1,0 +1,10 @@
+<header class="site-header">
+  <div class="container bar">
+    <a class="brand" href="#inicio">{{ name }}</a>
+    <nav>
+      @for (link of links; track link.href) {
+        <a [href]="link.href">{{ link.label }}</a>
+      }
+    </nav>
+  </div>
+</header>

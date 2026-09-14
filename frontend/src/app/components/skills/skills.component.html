@@ -1,0 +1,27 @@
+<section id="skills">
+  <div class="container">
+    <div class="section-title">
+      <span>03.</span>
+      <h2>Conocimientos</h2>
+    </div>
+    <div class="grid groups">
+      @for (group of groups(); track group.category) {
+        <article class="card">
+          <h3>{{ group.category }}</h3>
+          @for (skill of group.items; track skill.name) {
+            <div class="skill">
+              <div class="row">
+                <span>{{ skill.name }}</span>
+                <span class="muted">{{ skill.level }}%</span>
+              </div>
+              <div class="bar" role="progressbar" [attr.aria-valuenow]="skill.level" aria-valuemin="0"
+                aria-valuemax="100" [attr.aria-label]="skill.name">
+                <div class="fill" [style.width.%]="skill.level"></div>
+              </div>
+            </div>
+          }
+        </article>
+      }
+    </div>
+  </div>
+</section>

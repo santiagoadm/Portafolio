@@ -1,0 +1,48 @@
+.certs {
+  background: linear-gradient(180deg, rgba(22, 214, 164, 0.05), transparent);
+}
+
+.list {
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+}
+
+.cert {
+  align-items: flex-start;
+  display: flex;
+  gap: 16px;
+}
+
+.badge {
+  align-items: center;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border-radius: 12px;
+  color: #06122b;
+  display: flex;
+  flex: 0 0 56px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  height: 56px;
+  justify-content: center;
+  overflow: hidden;
+  width: 56px;
+}
+
+.badge img {
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+h3 {
+  font-size: 1.02rem;
+  margin-bottom: 4px;
+}
+
+.body p {
+  margin: 0 0 6px;
+  font-size: 0.9rem;
+}
+
+.id {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}

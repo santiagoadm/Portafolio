@@ -1,0 +1,25 @@
+.groups {
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+}
+
+.skill {
+  margin-bottom: 14px;
+}
+
+.row {
+  display: flex;
+  font-size: 0.92rem;
+  justify-content: space-between;
+}
+
+.bar {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.fill {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  height: 100%;
+}

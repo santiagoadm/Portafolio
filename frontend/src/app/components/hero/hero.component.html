@@ -1,0 +1,27 @@
+<section id="inicio" class="hero">
+  <div class="container hero-layout">
+    <div class="intro">
+      <p class="kicker">Hola, soy</p>
+      <h1>{{ profile.name }}</h1>
+      <p class="headline">{{ profile.headline }}</p>
+      <p class="muted location">{{ profile.location }}</p>
+      <div class="actions">
+        <a class="btn primary" href="#contacto">Contactar</a>
+        <a class="btn" [href]="profile.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <figure class="portrait">
+      <img src="img/santiago.png" [alt]="profile.name" width="564" height="673" loading="eager">
+    </figure>
+  </div>
+</section>
+
+<section id="sobre-mi">
+  <div class="container">
+    <div class="section-title">
+      <span>01.</span>
+      <h2>Sobre mí</h2>
+    </div>
+    <p class="about">{{ profile.about }}</p>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+<section id="contacto">
+  <div class="container">
+    <div class="section-title">
+      <span>08.</span>
+      <h2>Contacto</h2>
+    </div>
+    <div class="layout">
+      <div class="card info">
+        <p class="muted">¿Tienes un proceso que automatizar o una aplicación que construir? Escríbeme.</p>
+        <p><a [href]="'mailto:' + profile.email">{{ profile.email }}</a></p>
+        <p><a [href]="'tel:' + profile.phone.split(' ').join('')">{{ profile.phone }}</a></p>
+        <p><a [href]="profile.linkedin" target="_blank" rel="noopener">LinkedIn</a></p>
+      </div>
+
+      <form class="card" [formGroup]="form" (ngSubmit)="submit()">
+        <label>
+          Nombre
+          <input type="text" formControlName="name" autocomplete="name">
+        </label>
+        <label>
+          Email
+          <input type="email" formControlName="email" autocomplete="email">
+        </label>
+        <label>
+          Mensaje
+          <textarea rows="5" formControlName="message"></textarea>
+        </label>
+        <button type="submit" [disabled]="status() === 'sending'">
+          {{ status() === 'sending' ? 'Enviando...' : 'Enviar mensaje' }}
+        </button>
+        @if (status() === 'sent') {
+          <p class="ok">Mensaje enviado. Te respondo pronto.</p>
+        }
+        @if (status() === 'error') {
+          <p class="err">No se pudo enviar. Escríbeme a {{ profile.email }}.</p>
+        }
+      </form>
+    </div>
+  </div>
+</section>

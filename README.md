@@ -89,8 +89,8 @@ window.PORTFOLIO_CONFIG = {
 
 Si hay Supabase configurado, el formulario de contacto inserta directamente en la tabla
 `contact_messages`; si no, envía el mensaje a `POST /api/contact` del backend Express. En el
-despliegue de Cloudflare Pages este archivo lo genera el workflow a partir de los secrets, así que
-no hace falta commitear ninguna clave.
+despliegue de Cloudflare este archivo lo genera `scripts/build-cloudflare.sh` a partir de las
+variables del build, así que no hace falta commitear ninguna clave.
 
 ## Formulario de contacto con Supabase
 
@@ -100,21 +100,31 @@ no hace falta commitear ninguna clave.
    clave pública; los lees desde el panel de Supabase).
 3. Copia *Project URL* y *anon public key* (Settings → API) a `config.js` o a los secrets del repo.
 
-## Despliegue en Cloudflare Pages
+## Despliegue en Cloudflare
 
-El workflow `.github/workflows/deploy.yml` construye el frontend, escribe `config.js` y publica en
-Cloudflare Pages en cada push a `main`. Requiere en el repositorio:
+El sitio se publica como assets estáticos de un Worker (`wrangler.jsonc`), con Cloudflare Workers
+Builds conectado al repositorio: cada push a `main` construye y despliega.
 
-| Tipo | Nombre | Valor |
-|---|---|---|
-| Secret | `CLOUDFLARE_API_TOKEN` | Token con permiso *Cloudflare Pages: Edit* |
-| Secret | `CLOUDFLARE_ACCOUNT_ID` | ID de cuenta de Cloudflare |
-| Secret | `SUPABASE_ANON_KEY` | Clave anon del proyecto Supabase |
-| Variable | `SUPABASE_URL` | `https://<proyecto>.supabase.co` |
-| Variable | `PORTFOLIO_API_URL` | Opcional, URL de la API Express |
+Ajustes del Worker en el dashboard (*Settings → Build*):
 
-El proyecto de Pages debe llamarse `portafolio` (o cambia `--project-name` en el workflow). El repo
-puede seguir siendo privado: solo se publica el resultado del build.
+| Campo | Valor |
+|---|---|
+| Build command | `bash scripts/build-cloudflare.sh` |
+| Deploy command | `npx wrangler deploy` |
+| Root directory | `/` |
+
+Variables del build (*Build variables*):
+
+| Nombre | Valor |
+|---|---|
+| `SUPABASE_URL` | `https://<proyecto>.supabase.co` |
+| `SUPABASE_ANON_KEY` | Clave anon (pública) del proyecto Supabase |
+| `PORTFOLIO_API_URL` | Opcional, URL de la API Express |
+
+La clave anon es pública por diseño; lo que protege los datos es la política RLS insert-only. El
+repo puede seguir siendo privado: solo se publica el resultado del build.
+
+`not_found_handling: single-page-application` hace el fallback de rutas a `index.html`.
 
 Si además despliegas el backend Express (Render, Railway, Fly), añade el dominio del sitio a
 `CORS_ORIGIN`.

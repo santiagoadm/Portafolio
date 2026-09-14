@@ -23,6 +23,11 @@ export class ContactComponent {
     message: ['', [Validators.required, Validators.minLength(10)]]
   });
 
+  showError(field: 'name' | 'email' | 'message'): boolean {
+    const control = this.form.controls[field];
+    return control.invalid && (control.touched || control.dirty);
+  }
+
   submit(): void {
     const { name, email, message } = this.form.getRawValue();
     const payload = { name: name.trim(), email: email.trim(), message: message.trim() };

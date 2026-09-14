@@ -24,12 +24,15 @@ export class ContactComponent {
   });
 
   submit(): void {
-    if (this.form.invalid) {
+    const { name, email, message } = this.form.getRawValue();
+    const payload = { name: name.trim(), email: email.trim(), message: message.trim() };
+
+    if (this.form.invalid || !payload.name || payload.message.length < 10) {
       this.form.markAllAsTouched();
       return;
     }
     this.status.set('sending');
-    this.profileService.sendContact(this.form.getRawValue()).subscribe({
+    this.profileService.sendContact(payload).subscribe({
       next: () => {
         this.status.set('sent');
         this.form.reset();

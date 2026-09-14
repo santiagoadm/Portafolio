@@ -1,10 +1,6 @@
-declare global {
-  interface Window {
-    PORTFOLIO_API_URL?: string;
-  }
-}
+import { runtimeConfig } from '../app/runtime-config';
 
 export const environment = {
   production: true,
-  apiUrl: window.PORTFOLIO_API_URL || '/api'
+  apiUrl: runtimeConfig().apiUrl || '/api'
 };

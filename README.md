@@ -75,9 +75,49 @@ CORS_ORIGIN=http://localhost:4200          # orígenes permitidos, separados por
 CONTACT_STORE=data/contact-messages.jsonl  # dónde se guardan los mensajes de contacto
 ```
 
-Si el frontend se publica en un dominio distinto al de la API (por ejemplo GitHub Pages + Render),
-hay que indicar la URL pública del backend en `window.PORTFOLIO_API_URL` (`frontend/src/index.html`)
-y añadir ese dominio a `CORS_ORIGIN`.
+## Configuración en tiempo de ejecución del frontend
+
+`frontend/public/config.js` se carga antes de la app y define `window.PORTFOLIO_CONFIG`:
+
+```js
+window.PORTFOLIO_CONFIG = {
+  apiUrl: '',          // URL pública de la API Express, si la despliegas
+  supabaseUrl: '',     // https://<proyecto>.supabase.co
+  supabaseAnonKey: ''  // clave anon (pública) del proyecto
+};
+```
+
+Si hay Supabase configurado, el formulario de contacto inserta directamente en la tabla
+`contact_messages`; si no, envía el mensaje a `POST /api/contact` del backend Express. En el
+despliegue de Cloudflare Pages este archivo lo genera el workflow a partir de los secrets, así que
+no hace falta commitear ninguna clave.
+
+## Formulario de contacto con Supabase
+
+1. Crea un proyecto en [supabase.com](https://supabase.com).
+2. En el SQL Editor ejecuta `supabase/schema.sql`: crea la tabla `contact_messages`, activa RLS y
+   deja una única política que permite a `anon` **insertar** (nadie puede leer los mensajes con la
+   clave pública; los lees desde el panel de Supabase).
+3. Copia *Project URL* y *anon public key* (Settings → API) a `config.js` o a los secrets del repo.
+
+## Despliegue en Cloudflare Pages
+
+El workflow `.github/workflows/deploy.yml` construye el frontend, escribe `config.js` y publica en
+Cloudflare Pages en cada push a `main`. Requiere en el repositorio:
+
+| Tipo | Nombre | Valor |
+|---|---|---|
+| Secret | `CLOUDFLARE_API_TOKEN` | Token con permiso *Cloudflare Pages: Edit* |
+| Secret | `CLOUDFLARE_ACCOUNT_ID` | ID de cuenta de Cloudflare |
+| Secret | `SUPABASE_ANON_KEY` | Clave anon del proyecto Supabase |
+| Variable | `SUPABASE_URL` | `https://<proyecto>.supabase.co` |
+| Variable | `PORTFOLIO_API_URL` | Opcional, URL de la API Express |
+
+El proyecto de Pages debe llamarse `portafolio` (o cambia `--project-name` en el workflow). El repo
+puede seguir siendo privado: solo se publica el resultado del build.
+
+Si además despliegas el backend Express (Render, Railway, Fly), añade el dominio del sitio a
+`CORS_ORIGIN`.
 
 ## Cómo actualizar tu contenido
 
@@ -90,7 +130,7 @@ Todo el contenido (experiencia, certificaciones, skills, proyectos, enlaces) viv
 Para añadir una certificación basta con agregar un objeto a `certifications` con `name`, `issuer`,
 `issued` y, si quieres, `credentialId`, `url` (enlace verificable) y `badge` (URL de la imagen).
 
-## Despliegue en GitHub Pages (frontend)
+### Alternativa: GitHub Pages
 
 ```bash
 cd frontend

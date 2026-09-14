@@ -4,9 +4,9 @@
 create table if not exists public.contact_messages (
   id uuid primary key default gen_random_uuid(),
   created_at timestamptz not null default now(),
-  name text not null check (char_length(name) between 1 and 120),
-  email text not null check (char_length(email) between 3 and 254 and email like '%_@_%.__%'),
-  message text not null check (char_length(message) between 10 and 5000)
+  name text not null check (char_length(btrim(name)) between 1 and 120),
+  email text not null check (char_length(email) <= 254 and email ~ '^[^[:space:]@]+@[^[:space:]@]+\.[^[:space:]@]+$'),
+  message text not null check (char_length(btrim(message)) between 10 and 5000)
 );
 
 alter table public.contact_messages enable row level security;
